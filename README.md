@@ -9,7 +9,7 @@ echo "#########################################################################"
 echo "node-red version: ${NODE_RED_VERSION}"
 echo "#########################################################################"
 
-docker build --no-cache \
+docker build \
     --build-arg ARCH=arm32v7 \
     --build-arg NODE_VERSION=12 \
     --build-arg NODE_RED_VERSION=${NODE_RED_VERSION} \
@@ -20,6 +20,9 @@ docker build --no-cache \
     --tag testing:node-red-build .
 
 ```
+
+## run the container
+
 
 
 
