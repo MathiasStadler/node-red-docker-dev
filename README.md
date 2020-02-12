@@ -1,3 +1,39 @@
+
+## build on orangepi-nano
+
+```bash
+cd docker-custom
+export NODE_RED_VERSION=$(grep -oE "\"node-red\": \"(\w*.\w*.\w*.\w*.\w*.)" package.json | cut -d\" -f4)
+
+echo "#########################################################################"
+echo "node-red version: ${NODE_RED_VERSION}"
+echo "#########################################################################"
+
+docker build --no-cache \
+    --build-arg ARCH=arm32v7 \
+    --build-arg NODE_VERSION=12 \
+    --build-arg NODE_RED_VERSION=${NODE_RED_VERSION} \
+    --build-arg OS=alpine \
+    --build-arg BUILD_DATE="$(date +"%Y-%m-%dT%H:%M:%SZ")" \
+    --build-arg TAG_SUFFIX=default \
+    --file Dockerfile.custom \
+    --tag testing:node-red-build .
+
+```
+
+
+
+
+
+## documentation from https://discourse.nodered.org/t/debugging-nodejs-in-node-red-docker-container/21370/6
+
+
+docker run -it -p 1880:1880 -p 9229:9229 --entrypoint npm testing:node-red-build run debug -- --userDir /data
+
+
+
+## org documentation from https://github.com/node-red/node-red-docker
+
 # Node-RED Docker
 
 
