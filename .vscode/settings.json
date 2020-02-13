@@ -2,6 +2,7 @@
     "cSpell.words": [
         "GPIO",
         "adduser",
+        "entrypoint",
         "iputils",
         "mkdir",
         "openssl",

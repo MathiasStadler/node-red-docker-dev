@@ -9,7 +9,7 @@ echo "#########################################################################"
 echo "node-red version: ${NODE_RED_VERSION}"
 echo "#########################################################################"
 
-docker build \
+docker build --no-cache \
     --build-arg ARCH=arm32v7 \
     --build-arg NODE_VERSION=12 \
     --build-arg NODE_RED_VERSION=${NODE_RED_VERSION} \
@@ -26,7 +26,7 @@ docker build \
 - create volume
 
 ```bash
-docker volume create node-red-flow-data
+docker volume create volume-amazon-node-red
 ```
 
 
@@ -36,6 +36,13 @@ docker volume create node-red-flow-data
 docker run -it -p 1880:1880 testing:node-red-build -- --userDir /data
 ```
 
+- normal mode with volume volume-amazon-node
+
+```bash
+docker run -it -p 1880:1880 -v source=volume-amazon-node-red,target=/data testing:node-red-build -- --userDir /data
+```
+
+
 - debug mode
 
 ```bash
@@ -43,10 +50,24 @@ docker run -it -p 1880:1880 -p 9229:9229 --entrypoint npm testing:node-red-build
 
 ```
 
+- debug mode with volume
+
+
+```bash
+docker run -it -p 1880:1880 -p 9229:9229 -v source=volume-amazon-node-red,target=/data --entrypoint npm testing:node-red-build run-script debug  -- --userDir /data
+```
+
+
+
 - for access to bash console
 
 ```bash
 docker run -it -p 1880:1880 -p 9229:9229 --entrypoint /bin/sh testing:node-red-build -i
+```
+
+
+```bash
+docker run -it -p 1880:1880 -p 9229:9229 -v source=volume-amazon-node-red,target=/data --entrypoint /bin/sh testing:node-red-build -i
 ```
 
 
