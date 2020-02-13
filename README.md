@@ -23,6 +23,31 @@ docker build \
 
 ## run the container
 
+- create volume
+
+```bash
+docker volume create node-red-flow-data
+```
+
+
+- normal mode
+
+```bash
+docker run -it -p 1880:1880 testing:node-red-build -- --userDir /data
+```
+
+- debug mode
+
+```bash
+docker run -it -p 1880:1880 -p 9229:9229 --entrypoint npm testing:node-red-build run debug -- --userDir /data
+
+```
+
+- for google chrome debugging  type chrome:inspect in the URL filed and enable Port forwarding
+
+- devtool tutorial https://developers.google.com/web/tools/chrome-devtools/javascript
+
+- call dev toll type : ctrl + shift +i
 
 
 
