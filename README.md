@@ -67,7 +67,7 @@ docker run -it -p 1880:1880 -p 9229:9229 --entrypoint /bin/sh testing:node-red-b
 
 
 ```bash
-docker run -it -p 1880:1880 -p 9229:9229 -v source=volume-amazon-node-red,target=/data --entrypoint /bin/sh testing:node-red-build -i
+docker run -it -p 1880:1880 -p 9229:9229 -v volume-amazon-node-red:/data --entrypoint /bin/sh testing:node-red-build -i
 ```
 
 
@@ -78,6 +78,11 @@ docker run -it -p 1880:1880 -p 9229:9229 -v source=volume-amazon-node-red,target
 - for call dev tool type : ctrl + shift +i
 
 
+## test node-red flow
+
+```json
+[{"id":"1f009195.52c39e","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"676ea641.6105e8","type":"lower-case","z":"1f009195.52c39e","name":"","x":420,"y":260,"wires":[["e379c5d1.a435b8"]]},{"id":"1b6d2bf6.7a9c44","type":"inject","z":"1f009195.52c39e","name":"","topic":"","payload":"Peter","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":170,"y":80,"wires":[["676ea641.6105e8"]]},{"id":"e379c5d1.a435b8","type":"debug","z":"1f009195.52c39e","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":680,"y":360,"wires":[]}]
+```
 
 
 
