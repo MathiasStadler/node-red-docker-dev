@@ -1,11 +1,32 @@
 {
     "cSpell.words": [
+        "Docker's",
+        "Dockerfiles",
         "GPIO",
+        "Greenkeeper",
         "adduser",
+        "chown",
+        "clientid",
+        "devtool",
+        "devtools",
         "entrypoint",
+        "flightaware",
+        "gpiod",
         "iputils",
+        "linuxkit",
+        "metafile",
         "mkdir",
+        "mosquitto",
+        "mybroker",
+        "mynodered",
+        "nodered",
+        "npms",
+        "openssh",
         "openssl",
+        "openwhisk",
+        "orangepi",
+        "tosidebar",
+        "tostatus",
         "tzdata"
     ]
 }
